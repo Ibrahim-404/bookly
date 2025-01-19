@@ -15,17 +15,21 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    controller =
-    AnimationController(vsync: this, duration: const Duration(seconds: 4))
-      ..forward();
-    animation = Tween<Offset>(
-      begin: const Offset(0, 3),
-      end: Offset.zero,
-    ).chain(CurveTween(curve: Curves.elasticInOut)).animate(controller);
+    slidingAnimation();
 
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushNamed(context, RoutesName.home);
     });
+  }
+
+  void slidingAnimation() {
+     controller =
+    AnimationController(vsync: this, duration: const Duration(seconds: 3))
+      ..forward();
+    animation = Tween<Offset>(
+      begin: const Offset(-2, 3),
+      end: Offset.zero,
+    ).chain(CurveTween(curve: Curves.elasticInOut)).animate(controller);
   }
 
   @override
