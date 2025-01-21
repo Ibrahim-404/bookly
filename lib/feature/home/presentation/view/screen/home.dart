@@ -7,27 +7,42 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppbarApplication(),
-            const SizedBox(
-              height: 8,
-            ),
-            BuildBuaner(),
-            SizedBox(height: 5,),
-            const Text(
-              "Best Seller",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            BestSellerListView(),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: AppbarApplication(),
+              ),
+              SliverToBoxAdapter(
+                child: const SizedBox(height: 8),
+              ),
+              SliverToBoxAdapter(
+                child: BuildBuaner(
+                  ratio: 0.7,
+                  listOfImages:[
+                  "assets/picture_file/Book 1 Hightligh.png",
+                  "assets/picture_file/Book 1 Hightligh.png",
+                  "assets/picture_file/Book 1 Hightligh.png"
+                  ],
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 15),
+                  child: const Text(
+                    "Best Seller",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              // Use BestSellerListView directly as a sliver
+              BestSellerListView(), // This is now a sliver
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }
-

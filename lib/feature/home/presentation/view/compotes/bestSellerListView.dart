@@ -6,22 +6,28 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding:EdgeInsets.zero,
-      itemCount: 10,
-      itemBuilder:(context, index) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: Best_Seller(
-            imageLink: "assets/picture_file/Book 1 Hightligh.png",
-            bookName: "Harry Potter and the Goblet of Fire",
-            authorName: "J.K. Rowling",
-            price: "19.99",
-            rate: "4.5",
-            viewing: "2390",
-          ),
-        );
-      },
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+            (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 15),
+            child: GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, RoutesName.bookDetails);
+              },
+              child: Best_Seller(
+                imageLink: "assets/picture_file/Book 1 Hightligh.png",
+                bookName: "Harry Potter and the Goblet of Fire",
+                authorName: "J.K. Rowling",
+                price: "19.99",
+                rate: "4.5",
+                viewing: "2390",
+              ),
+            ),
+          );
+        },
+        childCount: 10, // Number of items
+      ),
     );
   }
 }

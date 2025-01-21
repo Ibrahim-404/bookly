@@ -16,6 +16,7 @@ class Bookly extends StatelessWidget {
       // useMaterial3: true,
       splashColor: Color(0xFF1E1E1E),
       primaryColor: Colors.white,
+      scaffoldBackgroundColor: Color(0xFF100B20),
       textTheme: GoogleFonts.montserratSubrayadaTextTheme(ThemeData.dark().textTheme),
 
     ),

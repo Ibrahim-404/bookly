@@ -1,3 +1,4 @@
+import 'package:bookly/feature/home/presentation/view/screen/BookDetails.dart';
 import 'package:bookly/feature/splash/presentation/view/screen/Splash.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/feature/home/presentation/view/screen/home.dart';
@@ -9,6 +10,8 @@ class ManagerRoute {
         return MaterialPageRoute(builder: (_) => Splash());
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
+      case '/bookDetails':
+        return MaterialPageRoute(builder: (_) =>Bookdetails());
       default:
         return MaterialPageRoute(builder: (_) => Splash());
     }
