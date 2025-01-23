@@ -1,6 +1,6 @@
 # bookly
 
-book stor for read free enjoy 😊
+book stor for read free books enjoy 😊
 
 ## Getting Started
 
