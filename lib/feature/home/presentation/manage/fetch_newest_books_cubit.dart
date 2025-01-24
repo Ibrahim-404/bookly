@@ -13,7 +13,7 @@ class FetchNewestBooksCubit extends Cubit<FetchNewestBooksState> {
     result.fold((failer) {
       emit(FetchNewestBooksFailure(message: failer.message));
     }, (books) {
-      emit(FetchNewestBooksSuccess(books));
+      emit(FetchNewestBooksSuccess(books: books));
     });
   }
 }
