@@ -1,0 +1,5 @@
+import 'package:bookly/feature/home/data/model/list_of_book_home.dart';
+
+abstract class HomeApiService {
+  Future<Either,List<ModelForListOfBooksHome>>fetchNewestBooks();
+}

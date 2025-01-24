@@ -1,0 +1,20 @@
+import 'package:bookly/core/utils/constraint/api_services.dart';
+import 'package:bookly/core/utils/constraint/failer.dart';
+import 'package:bookly/feature/home/data/model/list_of_book_home.dart';
+import 'package:bookly/feature/home/data/repo/home%20repo.dart';
+import 'package:dartz/dartz.dart';
+
+class HomeRepoImple implements HomeRepo {
+  ApiServices _apiServices ;
+  ModelForListOfBooksHome modelForListOfBooksHome;
+  HomeRepoImple(this._apiServices);
+  @override
+  Future<Either<Failer, List<ModelForListOfBooksHome>>> fetchFeatureBooks()async {
+     final response = await _apiServices.getNewestBooks(endPoint:"volumes?Filtering=free-ebooks&Sorting=newest");
+    }
+
+  @override
+  Future<Either<Failer, List<ModelForListOfBooksHome>>> fetchNewestBooks() {
+  }
+
+}
