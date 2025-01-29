@@ -31,6 +31,7 @@ class Home extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: CustomScrollView(
+              physics:BouncingScrollPhysics(),
               slivers: [
                 SliverToBoxAdapter(
                   child: AppbarApplication(),
@@ -40,19 +41,9 @@ class Home extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: BuildBuaner(
+
                     ratio: 0.7,
                   ),
-                  //  else if (state is FetchFeatureBooksLoading) {
-                  //   return Center(
-                  //       child: CircularProgressIndicator(
-                  //     valueColor: AlwaysStoppedAnimation<Color>(
-                  //         Colors.blue), // Custom color
-                  //   ));
-                  // } else if (state is FetchFeatureBooksfailure) {
-                  //   return Center(child: Text(state.message));
-                  // } else {
-                  //   return Container();
-                  // }
                 ),
 
                 SliverToBoxAdapter(

@@ -38,7 +38,7 @@ class _SearchState extends State<Search> {
                     imageLink: "assets/picture_file/Book 1 Hightligh.png",
                     bookName: "Harry Potter and the Goblet of Fire",
                     authorName: "J.K. Rowling",
-                    price: "19.99",
+                    // price: "19.99",
                     rate: "4.5",
                     viewing: "2390",
                   ),

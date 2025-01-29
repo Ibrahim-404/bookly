@@ -14,7 +14,6 @@ class ApiServices {
         // Log the response to see its structure
         print('Response data: ${response.data}');
         final items = response.data['items'] as List?; // Use List? to allow null
-
         if (items == null) {
           return null; // Return an empty list if no items are found
         }

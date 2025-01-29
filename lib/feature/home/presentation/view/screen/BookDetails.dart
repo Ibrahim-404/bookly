@@ -12,7 +12,6 @@ class Bookdetails extends StatelessWidget {
     // Get screen dimensions
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -117,16 +116,7 @@ class Bookdetails extends StatelessWidget {
                     child: Text("You can also like", style: AppStyle.rgular16),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  // BuildBuaner(ratio: 1.5897,
-                  // listOfImages: [
-                  //   "assets/picture_file/recommandation/book.png",
-                  //   "assets/picture_file/recommandation/book4.png",
-                  //   "assets/picture_file/recommandation/book5.png",
-                  //   "assets/picture_file/recommandation/book7.png",
-                  //   "assets/picture_file/recommandation/book8.png",
-                  // ],
-                  //   thisitemHeight: 125,
-                  // ),
+
                 ],
               ),
             ),
