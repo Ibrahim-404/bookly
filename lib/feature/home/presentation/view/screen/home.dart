@@ -1,12 +1,10 @@
-import 'package:bookly/core/service_locator.dart';
-import 'package:bookly/feature/home/data/repo/api_services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookly/feature/home/data/repo/home_services_imple.dart';
 import 'package:bookly/feature/home/presentation/manage/fetch_feature_books_cubit.dart';
 import 'package:bookly/feature/home/presentation/manage/fetch_newest_books_cubit.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/bestSellerListView.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/build_buaner.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/custom_app_bar.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -21,10 +19,12 @@ class Home extends StatelessWidget {
         providers: [
           BlocProvider(
               create: (context) =>
-                  FetchFeatureBooksCubit(GetIt.instance.get<HomeRepoImple>())),
+                  FetchFeatureBooksCubit(GetIt.instance.get<HomeRepoImple>())
+                    ..fetchFeatureBooks()),
           BlocProvider(
             create: (context) =>
-                FetchNewestBooksCubit(GetIt.instance.get<HomeRepoImple>()),
+                FetchNewestBooksCubit(GetIt.instance.get<HomeRepoImple>())
+                  ..fetchNewestBooks(),
           ),
         ],
         child: SafeArea(
@@ -41,13 +41,20 @@ class Home extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: BuildBuaner(
                     ratio: 0.7,
-                    listOfImages: [
-                      "assets/picture_file/Book 1 Hightligh.png",
-                      "assets/picture_file/Book 1 Hightligh.png",
-                      "assets/picture_file/Book 1 Hightligh.png"
-                    ],
                   ),
+                  //  else if (state is FetchFeatureBooksLoading) {
+                  //   return Center(
+                  //       child: CircularProgressIndicator(
+                  //     valueColor: AlwaysStoppedAnimation<Color>(
+                  //         Colors.blue), // Custom color
+                  //   ));
+                  // } else if (state is FetchFeatureBooksfailure) {
+                  //   return Center(child: Text(state.message));
+                  // } else {
+                  //   return Container();
+                  // }
                 ),
+
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15),

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly/feature/home/data/model/list_of_book_home.dart';
+import 'package:bookly/feature/home/data/model/list_of_book_home_model.dart';
 import 'package:bookly/feature/home/data/repo/home_services_imple.dart';
 
 part 'fetch_newest_books_state.dart';

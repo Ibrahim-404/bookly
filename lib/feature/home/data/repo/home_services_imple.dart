@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/constraint/failer.dart';
-import 'package:bookly/feature/home/data/model/list_of_book_home.dart';
+import 'package:bookly/feature/home/data/model/list_of_book_home_model.dart';
 import 'package:bookly/feature/home/data/repo/api_services.dart';
 import 'package:bookly/core/fetch_newest_book.dart';
 import 'package:dartz/dartz.dart';
@@ -11,13 +11,13 @@ class HomeRepoImple implements HomeApiService {
   HomeRepoImple(this._apiServices);
 
   @override
-  Future<Either<Failer, List<ModelForListOfBooksHome>>>
+  Future<Either<Failer, ModelForListOfBooksHome>>
       fetchNewestBooks() async {
     try {
       final books = await _apiServices.getNewestBooks(
           endPoint:
               "volumes?q=subject:programming&filter =free-ebooks&Sorting=newest");
-      return Right(books);
+      return Right(books!);
     } catch (e) {
       if (e is DioError) {
         return Left(ServerFailer.cheackErrorFromsatescode(e));
@@ -28,12 +28,12 @@ class HomeRepoImple implements HomeApiService {
   }
 
   @override
-  Future<Either<Failer, List<ModelForListOfBooksHome>>>
+  Future<Either<Failer, ModelForListOfBooksHome>>
       fetchFeatureBooks() async {
     try {
       final books = await _apiServices.getNewestBooks(
           endPoint: "volumes?q=subject:programming&filter =free-ebooks");
-      return Right(books);
+      return Right(books!);
     } catch (e) {
       if (e is DioError) {
         return Left(ServerFailer.cheackErrorFromsatescode(e));

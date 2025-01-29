@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly/feature/home/data/model/list_of_book_home.dart';
+import 'package:bookly/feature/home/data/model/list_of_book_home_model.dart';
 import 'package:bookly/feature/home/data/repo/home_services_imple.dart';
 import 'package:meta/meta.dart';
 
@@ -16,9 +16,10 @@ class FetchFeatureBooksCubit extends Cubit<FetchFeatureBooksState> {
     result.fold(
       (failer) {
         emit(FetchFeatureBooksfailure(message: failer.message));
+        print(failer.message);
       },
-      (books) {
-        emit(FetchFeatureBooksSuccess(books: books));
+      (result) {
+        emit(FetchFeatureBooksSuccess(books:result));
       },
     );
   }

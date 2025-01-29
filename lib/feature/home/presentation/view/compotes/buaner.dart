@@ -19,7 +19,7 @@ class buaner extends StatelessWidget {
               color: Color(0xFFff502e),
               borderRadius: BorderRadius.all(Radius.circular(20)),
               image: DecorationImage(
-                  image: AssetImage(images), fit: BoxFit.cover)),
+                  image: NetworkImage(images), fit: BoxFit.cover)),
         ),
       ),
     );

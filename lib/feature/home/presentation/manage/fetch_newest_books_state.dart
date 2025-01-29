@@ -5,7 +5,7 @@ class FetchNewestBooksState {}
 final class FetchNewestBooksInitial extends FetchNewestBooksState {}
 final class FetchNewestBooksLoading extends FetchNewestBooksState {}
 final class FetchNewestBooksSuccess extends FetchNewestBooksState {
-final List<ModelForListOfBooksHome>books;
+final ModelForListOfBooksHome books;
   FetchNewestBooksSuccess({required this.books});
 }
 final class FetchNewestBooksFailure extends FetchNewestBooksState {

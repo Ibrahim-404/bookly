@@ -1,46 +1,46 @@
 class ModelForListOfBooksHome {
-  String kind;
-  int totalItems;
-  List<Item> items;
+  String? kind;
+  int? totalItems;
+  List<Item>? items;
 
   ModelForListOfBooksHome({
-    required this.kind,
-    required this.totalItems,
-    required this.items,
+    this.kind,
+    this.totalItems,
+    this.items,
   });
 
   factory ModelForListOfBooksHome.fromJson(Map<String, dynamic> json) => ModelForListOfBooksHome(
     kind: json["kind"],
     totalItems: json["totalItems"],
-    items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+    items: json["items"] == null ? [] : List<Item>.from(json["items"]!.map((x) => Item.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
     "kind": kind,
     "totalItems": totalItems,
-    "items": List<dynamic>.from(items.map((x) => x.toJson())),
+    "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
   };
 }
 
 class Item {
-  Kind kind;
-  String id;
-  String etag;
-  String selfLink;
-  VolumeInfo volumeInfo;
-  SaleInfo saleInfo;
-  AccessInfo accessInfo;
-  SearchInfo searchInfo;
+  Kind? kind;
+  String? id;
+  String? etag;
+  String? selfLink;
+  VolumeInfo? volumeInfo;
+  SaleInfo? saleInfo;
+  AccessInfo? accessInfo;
+  SearchInfo? searchInfo;
 
   Item({
-    required this.kind,
-    required this.id,
-    required this.etag,
-    required this.selfLink,
-    required this.volumeInfo,
-    required this.saleInfo,
-    required this.accessInfo,
-    required this.searchInfo,
+    this.kind,
+    this.id,
+    this.etag,
+    this.selfLink,
+    this.volumeInfo,
+    this.saleInfo,
+    this.accessInfo,
+    this.searchInfo,
   });
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
@@ -48,10 +48,10 @@ class Item {
     id: json["id"],
     etag: json["etag"],
     selfLink: json["selfLink"],
-    volumeInfo: VolumeInfo.fromJson(json["volumeInfo"]),
-    saleInfo: SaleInfo.fromJson(json["saleInfo"]),
-    accessInfo: AccessInfo.fromJson(json["accessInfo"]),
-    searchInfo: SearchInfo.fromJson(json["searchInfo"]),
+    volumeInfo: json["volumeInfo"] == null ? null : VolumeInfo.fromJson(json["volumeInfo"]),
+    saleInfo: json["saleInfo"] == null ? null : SaleInfo.fromJson(json["saleInfo"]),
+    accessInfo: json["accessInfo"] == null ? null : AccessInfo.fromJson(json["accessInfo"]),
+    searchInfo: json["searchInfo"] == null ? null : SearchInfo.fromJson(json["searchInfo"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -59,36 +59,36 @@ class Item {
     "id": id,
     "etag": etag,
     "selfLink": selfLink,
-    "volumeInfo": volumeInfo.toJson(),
-    "saleInfo": saleInfo.toJson(),
-    "accessInfo": accessInfo.toJson(),
-    "searchInfo": searchInfo.toJson(),
+    "volumeInfo": volumeInfo?.toJson(),
+    "saleInfo": saleInfo?.toJson(),
+    "accessInfo": accessInfo?.toJson(),
+    "searchInfo": searchInfo?.toJson(),
   };
 }
 
 class AccessInfo {
-  Country country;
-  Viewability viewability;
-  bool embeddable;
-  bool publicDomain;
-  TextToSpeechPermission textToSpeechPermission;
-  Epub epub;
-  Pdf pdf;
-  String webReaderLink;
-  AccessViewStatus accessViewStatus;
-  bool quoteSharingAllowed;
+  Country? country;
+  Viewability? viewability;
+  bool? embeddable;
+  bool? publicDomain;
+  TextToSpeechPermission? textToSpeechPermission;
+  Epub? epub;
+  Pdf? pdf;
+  String? webReaderLink;
+  AccessViewStatus? accessViewStatus;
+  bool? quoteSharingAllowed;
 
   AccessInfo({
-    required this.country,
-    required this.viewability,
-    required this.embeddable,
-    required this.publicDomain,
-    required this.textToSpeechPermission,
-    required this.epub,
-    required this.pdf,
-    required this.webReaderLink,
-    required this.accessViewStatus,
-    required this.quoteSharingAllowed,
+    this.country,
+    this.viewability,
+    this.embeddable,
+    this.publicDomain,
+    this.textToSpeechPermission,
+    this.epub,
+    this.pdf,
+    this.webReaderLink,
+    this.accessViewStatus,
+    this.quoteSharingAllowed,
   });
 
   factory AccessInfo.fromJson(Map<String, dynamic> json) => AccessInfo(
@@ -97,8 +97,8 @@ class AccessInfo {
     embeddable: json["embeddable"],
     publicDomain: json["publicDomain"],
     textToSpeechPermission: textToSpeechPermissionValues.map[json["textToSpeechPermission"]]!,
-    epub: Epub.fromJson(json["epub"]),
-    pdf: Pdf.fromJson(json["pdf"]),
+    epub: json["epub"] == null ? null : Epub.fromJson(json["epub"]),
+    pdf: json["pdf"] == null ? null : Pdf.fromJson(json["pdf"]),
     webReaderLink: json["webReaderLink"],
     accessViewStatus: accessViewStatusValues.map[json["accessViewStatus"]]!,
     quoteSharingAllowed: json["quoteSharingAllowed"],
@@ -110,8 +110,8 @@ class AccessInfo {
     "embeddable": embeddable,
     "publicDomain": publicDomain,
     "textToSpeechPermission": textToSpeechPermissionValues.reverse[textToSpeechPermission],
-    "epub": epub.toJson(),
-    "pdf": pdf.toJson(),
+    "epub": epub?.toJson(),
+    "pdf": pdf?.toJson(),
     "webReaderLink": webReaderLink,
     "accessViewStatus": accessViewStatusValues.reverse[accessViewStatus],
     "quoteSharingAllowed": quoteSharingAllowed,
@@ -139,12 +139,12 @@ final countryValues = EnumValues({
 });
 
 class Epub {
-  bool isAvailable;
+  bool? isAvailable;
   String? acsTokenLink;
   String? downloadLink;
 
   Epub({
-    required this.isAvailable,
+    this.isAvailable,
     this.acsTokenLink,
     this.downloadLink,
   });
@@ -163,11 +163,11 @@ class Epub {
 }
 
 class Pdf {
-  bool isAvailable;
+  bool? isAvailable;
   String? acsTokenLink;
 
   Pdf({
-    required this.isAvailable,
+    this.isAvailable,
     this.acsTokenLink,
   });
 
@@ -213,18 +213,18 @@ final kindValues = EnumValues({
 });
 
 class SaleInfo {
-  Country country;
-  Saleability saleability;
-  bool isEbook;
+  Country? country;
+  Saleability? saleability;
+  bool? isEbook;
   SaleInfoListPrice? listPrice;
   SaleInfoListPrice? retailPrice;
   String? buyLink;
   List<Offer>? offers;
 
   SaleInfo({
-    required this.country,
-    required this.saleability,
-    required this.isEbook,
+    this.country,
+    this.saleability,
+    this.isEbook,
     this.listPrice,
     this.retailPrice,
     this.buyLink,
@@ -253,12 +253,12 @@ class SaleInfo {
 }
 
 class SaleInfoListPrice {
-  double amount;
-  String currencyCode;
+  double? amount;
+  String? currencyCode;
 
   SaleInfoListPrice({
-    required this.amount,
-    required this.currencyCode,
+    this.amount,
+    this.currencyCode,
   });
 
   factory SaleInfoListPrice.fromJson(Map<String, dynamic> json) => SaleInfoListPrice(
@@ -273,36 +273,36 @@ class SaleInfoListPrice {
 }
 
 class Offer {
-  int finskyOfferType;
-  OfferListPrice listPrice;
-  OfferListPrice retailPrice;
+  int? finskyOfferType;
+  OfferListPrice? listPrice;
+  OfferListPrice? retailPrice;
 
   Offer({
-    required this.finskyOfferType,
-    required this.listPrice,
-    required this.retailPrice,
+    this.finskyOfferType,
+    this.listPrice,
+    this.retailPrice,
   });
 
   factory Offer.fromJson(Map<String, dynamic> json) => Offer(
     finskyOfferType: json["finskyOfferType"],
-    listPrice: OfferListPrice.fromJson(json["listPrice"]),
-    retailPrice: OfferListPrice.fromJson(json["retailPrice"]),
+    listPrice: json["listPrice"] == null ? null : OfferListPrice.fromJson(json["listPrice"]),
+    retailPrice: json["retailPrice"] == null ? null : OfferListPrice.fromJson(json["retailPrice"]),
   );
 
   Map<String, dynamic> toJson() => {
     "finskyOfferType": finskyOfferType,
-    "listPrice": listPrice.toJson(),
-    "retailPrice": retailPrice.toJson(),
+    "listPrice": listPrice?.toJson(),
+    "retailPrice": retailPrice?.toJson(),
   };
 }
 
 class OfferListPrice {
-  int amountInMicros;
-  String currencyCode;
+  int? amountInMicros;
+  String? currencyCode;
 
   OfferListPrice({
-    required this.amountInMicros,
-    required this.currencyCode,
+    this.amountInMicros,
+    this.currencyCode,
   });
 
   factory OfferListPrice.fromJson(Map<String, dynamic> json) => OfferListPrice(
@@ -329,10 +329,10 @@ final saleabilityValues = EnumValues({
 });
 
 class SearchInfo {
-  String textSnippet;
+  String? textSnippet;
 
   SearchInfo({
-    required this.textSnippet,
+    this.textSnippet,
   });
 
   factory SearchInfo.fromJson(Map<String, dynamic> json) => SearchInfo(
@@ -345,49 +345,49 @@ class SearchInfo {
 }
 
 class VolumeInfo {
-  String title;
+  String? title;
   List<String>? authors;
   String? publisher;
-  String publishedDate;
+  String? publishedDate;
   String? description;
-  List<IndustryIdentifier> industryIdentifiers;
-  ReadingModes readingModes;
-  int pageCount;
-  PrintType printType;
-  List<String> categories;
-  MaturityRating maturityRating;
-  bool allowAnonLogging;
-  String contentVersion;
+  List<IndustryIdentifier>? industryIdentifiers;
+  ReadingModes? readingModes;
+  int? pageCount;
+  PrintType? printType;
+  List<String>? categories;
+  MaturityRating? maturityRating;
+  bool? allowAnonLogging;
+  String? contentVersion;
   PanelizationSummary? panelizationSummary;
   ImageLinks imageLinks;
-  Language language;
-  String previewLink;
-  String infoLink;
-  String canonicalVolumeLink;
+  Language? language;
+  String? previewLink;
+  String? infoLink;
+  String? canonicalVolumeLink;
   double? averageRating;
   int? ratingsCount;
   String? subtitle;
 
   VolumeInfo({
-    required this.title,
+    this.title,
     this.authors,
     this.publisher,
-    required this.publishedDate,
+    this.publishedDate,
     this.description,
-    required this.industryIdentifiers,
-    required this.readingModes,
-    required this.pageCount,
-    required this.printType,
-    required this.categories,
-    required this.maturityRating,
-    required this.allowAnonLogging,
-    required this.contentVersion,
+    this.industryIdentifiers,
+    this.readingModes,
+    this.pageCount,
+    this.printType,
+    this.categories,
+    this.maturityRating,
+    this.allowAnonLogging,
+    this.contentVersion,
     this.panelizationSummary,
     required this.imageLinks,
-    required this.language,
-    required this.previewLink,
-    required this.infoLink,
-    required this.canonicalVolumeLink,
+    this.language,
+    this.previewLink,
+    this.infoLink,
+    this.canonicalVolumeLink,
     this.averageRating,
     this.ratingsCount,
     this.subtitle,
@@ -399,11 +399,11 @@ class VolumeInfo {
     publisher: json["publisher"],
     publishedDate: json["publishedDate"],
     description: json["description"],
-    industryIdentifiers: List<IndustryIdentifier>.from(json["industryIdentifiers"].map((x) => IndustryIdentifier.fromJson(x))),
-    readingModes: ReadingModes.fromJson(json["readingModes"]),
+    industryIdentifiers: json["industryIdentifiers"] == null ? [] : List<IndustryIdentifier>.from(json["industryIdentifiers"]!.map((x) => IndustryIdentifier.fromJson(x))),
+    readingModes: json["readingModes"] == null ? null : ReadingModes.fromJson(json["readingModes"]),
     pageCount: json["pageCount"],
     printType: printTypeValues.map[json["printType"]]!,
-    categories: List<String>.from(json["categories"].map((x) => x)),
+    categories: json["categories"] == null ? [] : List<String>.from(json["categories"]!.map((x) => x)),
     maturityRating: maturityRatingValues.map[json["maturityRating"]]!,
     allowAnonLogging: json["allowAnonLogging"],
     contentVersion: json["contentVersion"],
@@ -424,16 +424,16 @@ class VolumeInfo {
     "publisher": publisher,
     "publishedDate": publishedDate,
     "description": description,
-    "industryIdentifiers": List<dynamic>.from(industryIdentifiers.map((x) => x.toJson())),
-    "readingModes": readingModes.toJson(),
+    "industryIdentifiers": industryIdentifiers == null ? [] : List<dynamic>.from(industryIdentifiers!.map((x) => x.toJson())),
+    "readingModes": readingModes?.toJson(),
     "pageCount": pageCount,
     "printType": printTypeValues.reverse[printType],
-    "categories": List<dynamic>.from(categories.map((x) => x)),
+    "categories": categories == null ? [] : List<dynamic>.from(categories!.map((x) => x)),
     "maturityRating": maturityRatingValues.reverse[maturityRating],
     "allowAnonLogging": allowAnonLogging,
     "contentVersion": contentVersion,
     "panelizationSummary": panelizationSummary?.toJson(),
-    "imageLinks": imageLinks.toJson(),
+    "imageLinks": imageLinks?.toJson(),
     "language": languageValues.reverse[language],
     "previewLink": previewLink,
     "infoLink": infoLink,
@@ -449,8 +449,8 @@ class ImageLinks {
   String thumbnail;
 
   ImageLinks({
-    required this.smallThumbnail,
-    required this.thumbnail,
+   required this.smallThumbnail,
+   required this.thumbnail,
   });
 
   factory ImageLinks.fromJson(Map<String, dynamic> json) => ImageLinks(
@@ -465,12 +465,12 @@ class ImageLinks {
 }
 
 class IndustryIdentifier {
-  Type type;
-  String identifier;
+  Type? type;
+  String? identifier;
 
   IndustryIdentifier({
-    required this.type,
-    required this.identifier,
+    this.type,
+    this.identifier,
   });
 
   factory IndustryIdentifier.fromJson(Map<String, dynamic> json) => IndustryIdentifier(
@@ -513,12 +513,12 @@ final maturityRatingValues = EnumValues({
 });
 
 class PanelizationSummary {
-  bool containsEpubBubbles;
-  bool containsImageBubbles;
+  bool? containsEpubBubbles;
+  bool? containsImageBubbles;
 
   PanelizationSummary({
-    required this.containsEpubBubbles,
-    required this.containsImageBubbles,
+    this.containsEpubBubbles,
+    this.containsImageBubbles,
   });
 
   factory PanelizationSummary.fromJson(Map<String, dynamic> json) => PanelizationSummary(
@@ -541,12 +541,12 @@ final printTypeValues = EnumValues({
 });
 
 class ReadingModes {
-  bool text;
-  bool image;
+  bool? text;
+  bool? image;
 
   ReadingModes({
-    required this.text,
-    required this.image,
+    this.text,
+    this.image,
   });
 
   factory ReadingModes.fromJson(Map<String, dynamic> json) => ReadingModes(
