@@ -7,7 +7,7 @@ class ApiServices {
 
   ApiServices(this._dio);
 
-  Future<ModelForListOfBooksHome?> getNewestBooks({required String endPoint}) async {
+  Future<ModelForListOfBooksHome?> getBooks({required String endPoint}) async {
     try {
       final response = await _dio.get(_baseUrl + endPoint);
       if (response.statusCode == 200 && response.data != null) {
@@ -17,7 +17,6 @@ class ApiServices {
         if (items == null) {
           return null; // Return an empty list if no items are found
         }
-
         return ModelForListOfBooksHome.fromJson(response.data);
       } else {
         throw Exception('Failed to fetch data');

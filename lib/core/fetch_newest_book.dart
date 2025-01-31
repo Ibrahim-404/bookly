@@ -4,4 +4,5 @@ import 'package:dartz/dartz.dart';
 abstract class HomeApiService {
   Future<Either<Failer, ModelForListOfBooksHome>>fetchNewestBooks();
   Future<Either<Failer, ModelForListOfBooksHome>>fetchFeatureBooks();
+Future<Either<Failer, ModelForListOfBooksHome>>SimilarBooks({required String category});
 }

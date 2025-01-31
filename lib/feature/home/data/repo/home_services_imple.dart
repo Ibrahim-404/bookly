@@ -14,7 +14,7 @@ class HomeRepoImple implements HomeApiService {
   Future<Either<Failer, ModelForListOfBooksHome>>
       fetchNewestBooks() async {
     try {
-      final books = await _apiServices.getNewestBooks(
+      final books = await _apiServices.getBooks(
           endPoint:
               "volumes?q=subject:programming&filter =free-ebooks&Sorting=newest");
       return Right(books!);
@@ -31,7 +31,7 @@ class HomeRepoImple implements HomeApiService {
   Future<Either<Failer, ModelForListOfBooksHome>>
       fetchFeatureBooks() async {
     try {
-      final books = await _apiServices.getNewestBooks(
+      final books = await _apiServices.getBooks(
           endPoint: "volumes?q=subject:programming&filter =free-ebooks");
       return Right(books!);
     } catch (e) {
@@ -40,5 +40,22 @@ class HomeRepoImple implements HomeApiService {
       }
       return Left(ServerFailer(e.toString()));
     }
+  }
+
+  @override
+  Future<Either<Failer, ModelForListOfBooksHome>> SimilarBooks({required String category})async {
+    try {
+      final books = await _apiServices.getBooks(
+          endPoint:
+          "volumes?q=subject:$category&filter =relevance ");
+      return Right(books!);
+    } catch (e) {
+      if (e is DioError) {
+        return Left(ServerFailer.cheackErrorFromsatescode(e));
+      }
+      return Left(ServerFailer(e.toString()));
+      print(e);
+    }
+    throw UnimplementedError();
   }
 }

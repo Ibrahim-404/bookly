@@ -6,12 +6,9 @@ import 'package:bookly/feature/home/presentation/view/compotes/bestSellerListVie
 import 'package:bookly/feature/home/presentation/view/compotes/build_buaner.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +38,6 @@ class Home extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: BuildBuaner(
-
                     ratio: 0.7,
                   ),
                 ),
