@@ -22,11 +22,13 @@ class BestSellerListView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 15),
                     child: GestureDetector(
-                      onTap: () async{
-                       await Navigator.push(context, MaterialPageRoute(builder: (context) {
-                         return BookDetails(fetchItems: book,);
-                       },));
-                       print("Navigating to BookDetails with book: $book");
+                      onTap: () async {
+                        await Navigator.pushNamed(
+                          context,
+                          RoutesName.bookDetails, // Assuming you have a route name defined for BookDetails
+                          arguments: book, // Pass the book object as an argument
+                        );
+                        print("Navigating to BookDetails with book: $book");
                       },
                       child: Best_Seller(
                           imageLink:

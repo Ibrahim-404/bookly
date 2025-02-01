@@ -17,9 +17,10 @@ class ManagerRoute {
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
       case '/bookDetails':
-          Item? book ;
+          // Item? book ;
+        final book = settings.arguments as Item?;
         return MaterialPageRoute(builder: (_) =>BlocProvider(
-          create: (context) => ItemDetailsCategoriesCubit(GetIt.instance.get<HomeRepoImple>())..fetchSimilarBooks(),
+          create: (context) => ItemDetailsCategoriesCubit(GetIt.instance.get<HomeRepoImple>()),
           child: BookDetails(
                  fetchItems:book,
           ),

@@ -9,9 +9,9 @@ class ItemDetailsCategoriesCubit extends Cubit<ItemDetailsCategoriesState> {
   ItemDetailsCategoriesCubit(this.homeRepoImple) : super(ItemDetailsCategoriesInitial());
   HomeRepoImple homeRepoImple;
 
-  Future<void> fetchSimilarBooks() async {
+  Future<void> fetchSimilarBooks({required String category}) async {
     emit(ItemDetailsCategoriesLoading());
-    final result = await homeRepoImple.SimilarBooks(category: "Programming");
+    final result = await homeRepoImple.SimilarBooks(category: category);
     result.fold(
           (failer) {
         emit(ItemDetailsCategoriesFailure(message: failer.message));
