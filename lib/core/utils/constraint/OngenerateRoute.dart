@@ -1,3 +1,4 @@
+import 'package:bookly/feature/auth/presentation/view/screens/sign_in.dart';
 import 'package:bookly/feature/home/data/model/list_of_book_home_model.dart';
 import 'package:bookly/feature/home/data/repo/home_services_imple.dart';
 import 'package:bookly/feature/home/presentation/manage/details/item_details_categories_cubit.dart';
@@ -13,7 +14,7 @@ class ManagerRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => Splash());
+        return MaterialPageRoute(builder: (_) => SignIn());
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
       case '/bookDetails':
