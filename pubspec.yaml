@@ -42,6 +42,7 @@ dependencies:
   flutter_bloc: ^9.0.0
   cached_network_image: ^3.4.1
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +69,7 @@ flutter:
   assets:
     - assets/picture_file/
     - assets/picture_file/recommandation/
+    - assets/picture_file/AuthIcon/
 
   #   - images/a_dot_ham.jpeg
 

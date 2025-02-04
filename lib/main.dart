@@ -20,7 +20,6 @@ class Bookly extends StatelessWidget {
       primaryColor: Colors.white,
       scaffoldBackgroundColor: Color(0xFF100B20),
       textTheme: GoogleFonts.montserratSubrayadaTextTheme(ThemeData.dark().textTheme),
-
     ),
 onGenerateRoute: ManagerRoute.generateRoute,
       debugShowCheckedModeBanner: false,
