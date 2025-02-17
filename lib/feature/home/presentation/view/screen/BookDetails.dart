@@ -7,6 +7,8 @@ import 'package:bookly/feature/home/data/model/list_of_book_home_model.dart';
 import 'package:bookly/feature/home/presentation/manage/details/item_details_categories_cubit.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/coustom_App_Bar_Book_details.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/build_buaner.dart';
+
+import '../compotes/CustomBookItem.dart';
 class BookDetails extends StatefulWidget {
   final Item? fetchItems;
 

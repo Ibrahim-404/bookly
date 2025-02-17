@@ -8,7 +8,8 @@ import 'package:bookly/feature/home/presentation/view/compotes/custom_app_bar.da
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 class Home extends StatelessWidget {
-  const Home({super.key});
+   Home({super.key});
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

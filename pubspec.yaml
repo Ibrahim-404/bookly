@@ -41,6 +41,14 @@ dependencies:
   get_it: ^8.0.3
   flutter_bloc: ^9.0.0
   cached_network_image: ^3.4.1
+  firebase_core: ^3.11.0
+  flutter_facebook_auth: ^6.2.0
+  firebase_auth: ^5.4.2
+  google_sign_in: ^6.2.2
+  smart_auth: ^3.2.0
+  awesome_dialog: ^3.2.1
+  shared_preferences: ^2.5.2
+
 
 
 dev_dependencies:
@@ -70,6 +78,7 @@ flutter:
     - assets/picture_file/
     - assets/picture_file/recommandation/
     - assets/picture_file/AuthIcon/
+    - assets/picture_file/forgetPassword_images/
 
   #   - images/a_dot_ham.jpeg
 
@@ -84,11 +93,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+     - family: Raleway
+       fonts:
+         - asset: assets/fontes/raleway/Raleway-Italic-VariableFont_wght.ttf
+     - family: PlayfairDisplay
+       fonts:
+         - asset: assets/fontes/PlayfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf
+#         - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

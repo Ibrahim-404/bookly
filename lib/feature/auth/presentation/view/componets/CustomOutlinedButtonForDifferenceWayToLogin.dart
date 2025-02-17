@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 class CustomOutlinedButtonForDifferenceWayToLogin extends StatelessWidget {
   final String imagePath,hintText;
-  CustomOutlinedButtonForDifferenceWayToLogin({super.key, required this.imagePath, required this.hintText});
+  final void Function()? ontap;
+  CustomOutlinedButtonForDifferenceWayToLogin({super.key, required this.imagePath, required this.hintText, this.ontap});
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-        onPressed: () {},
+        onPressed:ontap ,
+
         style: OutlinedButton.styleFrom(
           minimumSize: Size(double.infinity, 46),
           shape: RoundedRectangleBorder(

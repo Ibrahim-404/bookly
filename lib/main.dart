@@ -1,8 +1,14 @@
 import 'package:bookly/core/service_locator.dart';
 import 'package:bookly/core/utils/constraint/OngenerateRoute.dart';
+import 'package:bookly/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-void main(){
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   ServiceLocator().setup_serviceLocator();
   runApp(
       Bookly()

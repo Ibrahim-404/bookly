@@ -1,4 +1,5 @@
 import 'package:bookly/feature/home/presentation/manage/fetch_feature_books_cubit.dart';
+import 'package:bookly/feature/home/presentation/view/compotes/CustomBookItem.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/buaner.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ class BuildBuaner extends StatelessWidget {
   double? itemHeight;
 
   BuildBuaner({super.key, required this.ratio, thisitemHeight});
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -46,21 +46,3 @@ class BuildBuaner extends StatelessWidget {
   }
 }
 
-class CustomBookItem extends StatelessWidget {
-  final String images;
-
-  CustomBookItem({super.key, required this.images});
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(18),
-      child: CachedNetworkImage(
-        imageUrl: images, fit: BoxFit.fill,
-        fadeInCurve: Curves.bounceInOut,
-        // placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-        errorWidget: (context, url, error) => Icon(Icons.error),
-      ),
-    );
-  }
-}

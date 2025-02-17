@@ -3,8 +3,11 @@ import 'package:bookly/feature/home/presentation/view/compotes/build_buaner.dart
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'CustomBookItem.dart';
+
 class Best_Seller extends StatelessWidget {
   final String imageLink, bookName, authorName, rate, viewing;
+
   Best_Seller({
     super.key,
     required this.imageLink,
@@ -14,6 +17,7 @@ class Best_Seller extends StatelessWidget {
     required this.rate,
     required this.viewing,
   });
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,9 +33,11 @@ class Best_Seller extends StatelessWidget {
         const SizedBox(
           width: 27.5,
         ),
-        Expanded( // Wrap the Column in an Expanded widget
+        Expanded(
+          // Wrap the Column in an Expanded widget
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Align text to the start
+            crossAxisAlignment: CrossAxisAlignment.start,
+            // Align text to the start
             children: [
               ListTile(
                 contentPadding: EdgeInsets.zero, // Remove default padding
@@ -44,7 +50,7 @@ class Best_Seller extends StatelessWidget {
                 ),
                 subtitle: Text(
                   authorName,
-                  style:AppStyle.rgular14,
+                  style: AppStyle.rgular14,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),

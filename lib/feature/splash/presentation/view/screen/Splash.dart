@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/Function/save_userId.dart';
 import 'package:bookly/core/utils/constraint/picture.dart';
 import 'package:bookly/core/utils/constraint/routes_name.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +12,17 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   late Animation<Offset> animation;
   late AnimationController controller;
-
   @override
   void initState() {
     super.initState();
     slidingAnimation();
-
-    Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushNamed(context, RoutesName.home);
+    Future.delayed(const Duration(seconds: 4), () async {
+      String? userId = await SaveUserId().getUserId();
+      if (userId == null) {
+        Navigator.pushNamed(context, RoutesName.signIn);
+      } else {
+        Navigator.pushNamed(context, RoutesName.home);
+      }
     });
   }
 
@@ -56,7 +60,6 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   }
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller.dispose();
   }
