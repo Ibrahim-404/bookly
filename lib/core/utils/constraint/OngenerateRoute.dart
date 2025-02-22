@@ -13,6 +13,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../feature/auth/presentation/view/screens/Verify_ForgetPasswordSms.dart';
 import '../../../feature/auth/presentation/view/screens/forgetPassword.dart';
+import '../../../feature/home/presentation/manage/picker_image_cubit.dart';
 
 class ManagerRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,7 +21,10 @@ class ManagerRoute {
       case '/':
         return MaterialPageRoute(builder: (_) => Splash());
       case '/home':
-        return MaterialPageRoute(builder: (_) => Home());
+        return MaterialPageRoute(builder: (_) => BlocProvider(
+  create: (context) => PickerImageCubit(),
+  child: Home(),
+));
       case '/bookDetails':
           // Item? book ;
         final book = settings.arguments as Item?;

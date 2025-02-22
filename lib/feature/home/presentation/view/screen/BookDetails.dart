@@ -8,7 +8,9 @@ import 'package:bookly/feature/home/presentation/manage/details/item_details_cat
 import 'package:bookly/feature/home/presentation/view/compotes/coustom_App_Bar_Book_details.dart';
 import 'package:bookly/feature/home/presentation/view/compotes/build_buaner.dart';
 
+import '../../../../../core/utils/Function/launchUrl_parse.dart';
 import '../compotes/CustomBookItem.dart';
+
 class BookDetails extends StatefulWidget {
   final Item? fetchItems;
 
@@ -28,14 +30,8 @@ class _BookDetailsState extends State<BookDetails> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SafeArea(
@@ -57,7 +53,7 @@ class _BookDetailsState extends State<BookDetails> {
                           image: DecorationImage(
                             image: NetworkImage(
                               widget.fetchItems?.volumeInfo?.imageLinks
-                                  .thumbnail ??
+                                      .thumbnail ??
                                   '',
                             ),
                             fit: BoxFit.cover,
@@ -89,12 +85,12 @@ class _BookDetailsState extends State<BookDetails> {
                               color: Colors.yellow, size: screenWidth * 0.04),
                           Text(
                               widget.fetchItems?.volumeInfo?.averageRating
-                                  ?.toString() ??
+                                      ?.toString() ??
                                   "N/A",
                               style: AppStyle.rgular16),
                           Text(
                               widget.fetchItems?.volumeInfo?.ratingsCount
-                                  ?.toString() ??
+                                      ?.toString() ??
                                   "N/A",
                               style: AppStyle.rgular14),
                         ],
@@ -105,16 +101,32 @@ class _BookDetailsState extends State<BookDetails> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         buildButton("Free", Colors.white, Colors.black,
-                            screenWidth, screenHeight),
-                        buildButton("Free preview", Color(0xFFEF8262),
-                            Colors.white, screenWidth, screenHeight),
+                            screenWidth, screenHeight, () {}),
+                        buildButton(
+                          widget.fetchItems?.volumeInfo?.previewLink == null
+                              ? "not found"
+                              : "Free preview",
+                          Color(0xFFEF8262),
+                          Colors.white,
+                          screenWidth,
+                          screenHeight,
+                          () async {
+                            if (widget.fetchItems?.volumeInfo?.previewLink ==
+                                null) {
+                              return;
+                            } else {
+                              await launchUrlCustom(
+                                  widget.fetchItems?.volumeInfo?.previewLink);
+                            }
+                          },
+                        ),
                       ],
                     ),
                     SizedBox(height: screenHeight * 0.04),
                     Container(
                       alignment: Alignment.centerLeft,
                       child:
-                      Text("You can also like", style: AppStyle.rgular16),
+                          Text("You can also like", style: AppStyle.rgular16),
                     ),
                     SizedBox(height: screenHeight * 0.02),
                   ],
@@ -158,7 +170,7 @@ class _BookDetailsState extends State<BookDetails> {
                   } else {
                     return SliverToBoxAdapter(
                       child:
-                      Center(child: Text("Oops! Something went wrong. 😒")),
+                          Center(child: Text("Oops! Something went wrong. 😒")),
                     );
                   }
                 },

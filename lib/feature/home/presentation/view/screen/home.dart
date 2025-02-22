@@ -7,12 +7,17 @@ import 'package:bookly/feature/home/presentation/view/compotes/build_buaner.dart
 import 'package:bookly/feature/home/presentation/view/compotes/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../manage/picker_image_cubit.dart';
+import '../compotes/customDrawer.dart';
 class Home extends StatelessWidget {
    Home({super.key});
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Customdrawer(
+      ),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
@@ -24,6 +29,7 @@ class Home extends StatelessWidget {
                 FetchNewestBooksCubit(GetIt.instance.get<HomeRepoImple>())
                   ..fetchNewestBooks(),
           ),
+
         ],
         child: SafeArea(
           child: Padding(

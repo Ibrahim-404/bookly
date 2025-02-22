@@ -6,9 +6,9 @@ import 'package:bookly/feature/auth/presentation/view/componets/CustomTextFormFi
 import 'package:bookly/feature/auth/presentation/view/componets/QuestionAndNavigation.dart';
 import 'package:bookly/feature/auth/presentation/view/componets/buildElevatedButtonForAuthFunction.dart';
 import 'package:bookly/feature/auth/presentation/view/componets/customDivider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import '../../../../../core/utils/Function/save_userId.dart';
 import '../../../../../core/utils/Function/signInUsingGoogle.dart'
     show signInWithGoogle;
@@ -90,6 +90,7 @@ class SignIn extends StatelessWidget {
                         );
                         String userId = FirebaseAuth.instance.currentUser!.uid;
                         User? user = FirebaseAuth.instance.currentUser;
+                        FirebaseFirestore.instance.collection("users").doc(user!.uid).set({"userId": userId});
                         if (user != null) {
                           String userId = user.uid;
                           await SaveUserId().saveUserId(userId);

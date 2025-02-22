@@ -2,7 +2,7 @@ import 'package:bookly/core/utils/constraint/appStyle.dart';
 import 'package:flutter/material.dart';
 
 Widget buildButton(String text, Color bgColor, Color textColor,
-    double screenWidth, double screenHeight) {
+    double screenWidth, double screenHeight, void Function()? onTap) {
   return Container(
     alignment: Alignment.center,
     height: screenHeight * 0.06,
@@ -16,7 +16,7 @@ Widget buildButton(String text, Color bgColor, Color textColor,
           bottomLeft: Radius.circular(20), topRight: Radius.circular(20)),
     ),
     child: TextButton(
-      onPressed: () {},
+      onPressed:onTap,
       child: Text(text, style: AppStyle.rgular16.copyWith(color: textColor)),
     ),
   );

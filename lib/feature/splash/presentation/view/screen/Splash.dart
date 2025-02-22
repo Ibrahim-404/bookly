@@ -18,7 +18,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
     slidingAnimation();
     Future.delayed(const Duration(seconds: 4), () async {
       String? userId = await SaveUserId().getUserId();
-      if (userId == null) {
+      if (userId == null || userId.isEmpty) {
         Navigator.pushNamed(context, RoutesName.signIn);
       } else {
         Navigator.pushNamed(context, RoutesName.home);
